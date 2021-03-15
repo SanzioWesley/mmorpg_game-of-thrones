@@ -23,7 +23,7 @@
             });
 
             $('#btn_suditos').click(function() {
-                $('#msg_erros').hide();
+                $('#msg').hide();
 
                 $.ajax({
                     url: '/suditos',
@@ -35,7 +35,7 @@
             });
 
             $('#btn_pergaminho').click(function() {
-                $('#msg_erros').hide();
+                $('#msg').hide();
 
                 $.ajax({
                     url: '/pergaminhos',
@@ -63,56 +63,62 @@
 
     <div class="container">
 
-        <% if(comando_invalido=='S' ){ %>
-            <div class="alert alert-danger" id="msg_erros">
+        <% if(msg=='A' ){ %>
+            <div class="alert alert-danger" id="msg">
                 <strong>Operação Inválida, verifique se todos os campos foram informados!</strong>
             </div>
             <% } %>
 
-                <div class="row">
-                    <div class="col-sm-3 casa">
-                        <img src="images/casa_<%= img_casa %>.jpg" />
+                <% if(msg=='B' ){ %>
+                    <div class="alert alert-info" id="msg">
+                        <strong>Ação realizada com sucesso!</strong>
                     </div>
+                    <% } %>
 
-                    <div class="col-sm-9">
-                        <div class="row barra-superior">
-                            <div class="col-sm-2">
-                                <img src="images/habilidades/temor.jpg" title="Temor" alt="Temor" />
-                                <span>
-                                    <%=jogo.temor%>
-                                </span>
+                        <div class="row">
+                            <div class="col-sm-3 casa">
+                                <img src="images/casa_<%= img_casa %>.jpg" />
                             </div>
 
-                            <div class="col-sm-2">
-                                <img src="images/habilidades/sabedoria.jpg" title="Sabedoria" alt="Sabedoria" />
-                                <span>
-                                    <%=jogo.sabedoria%>
-                                </span>
-                            </div>
+                            <div class="col-sm-9">
+                                <div class="row barra-superior">
+                                    <div class="col-sm-2">
+                                        <img src="images/habilidades/temor.jpg" title="Temor" alt="Temor" />
+                                        <span>
+                                            <%=jogo.temor%>
+                                        </span>
+                                    </div>
 
-                            <div class="col-sm-2">
-                                <img src="images/habilidades/comercio.jpg" title="Comércio" alt="Comércio" />
-                                <span>
-                                    <%=jogo.comercio%>
-                                </span>
-                            </div>
+                                    <div class="col-sm-2">
+                                        <img src="images/habilidades/sabedoria.jpg" title="Sabedoria" alt="Sabedoria" />
+                                        <span>
+                                            <%=jogo.sabedoria%>
+                                        </span>
+                                    </div>
 
-                            <div class="col-sm-2">
-                                <img src="images/habilidades/magia.jpg" title="Magia" alt="Magia" />
-                                <span>
-                                    <%=jogo.magia%>
-                                </span>
+                                    <div class="col-sm-2">
+                                        <img src="images/habilidades/comercio.jpg" title="Comércio" alt="Comércio" />
+                                        <span>
+                                            <%=jogo.comercio%>
+                                        </span>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <img src="images/habilidades/magia.jpg" title="Magia" alt="Magia" />
+                                        <span>
+                                            <%=jogo.magia%>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9">
-                        <div class="acoes" id="acoes"></div>
-                    </div>
-                </div>
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9">
+                                <div class="acoes" id="acoes"></div>
+                            </div>
+                        </div>
 
     </div>
 
