@@ -42,11 +42,24 @@
                     method: 'get',
                     success: function(data) {
                         $('#acoes').html(data);
+                        clearInterval(timerId);
+                        cronometro();
                     }
                 });
             });
 
         });
+
+        var timerId = null;
+
+        function cronometro() {
+            $('.tempo_restante').each(function() {
+                var segundos = $(this).html();
+                var segundos_atuais = parseInt(segundos) - 1;
+                var segundos = $(this).html(segundos_atuais);
+            });
+            timerId = setTimeout('cronometro()', 1000);
+        }
     </script>
 
 </head>
@@ -61,16 +74,15 @@
         </div>
     </nav>
 
-
     <div class="container">
 
-        <% if(msg=='A' ){ %>
+        <% if(msg == 'A'){ %>
             <div class="alert alert-danger" id="msg">
                 <strong>Operação Inválida, verifique se todos os campos foram informados!</strong>
             </div>
             <% } %>
 
-                <% if(msg=='B' ){ %>
+                <% if(msg == 'B'){ %>
                     <div class="alert alert-info" id="msg">
                         <strong>Ação realizada com sucesso!</strong>
                     </div>
@@ -85,30 +97,22 @@
                                 <div class="row barra-superior">
                                     <div class="col-sm-2">
                                         <img src="images/habilidades/temor.jpg" title="Temor" alt="Temor" />
-                                        <span>
-                                            <%=jogo.temor%>
-                                        </span>
+                                        <span><%=jogo.temor%></span>
                                     </div>
 
                                     <div class="col-sm-2">
                                         <img src="images/habilidades/sabedoria.jpg" title="Sabedoria" alt="Sabedoria" />
-                                        <span>
-                                            <%=jogo.sabedoria%>
-                                        </span>
+                                        <span><%=jogo.sabedoria%></span>
                                     </div>
 
                                     <div class="col-sm-2">
                                         <img src="images/habilidades/comercio.jpg" title="Comércio" alt="Comércio" />
-                                        <span>
-                                            <%=jogo.comercio%>
-                                        </span>
+                                        <span><%=jogo.comercio%></span>
                                     </div>
 
                                     <div class="col-sm-2">
                                         <img src="images/habilidades/magia.jpg" title="Magia" alt="Magia" />
-                                        <span>
-                                            <%=jogo.magia%>
-                                        </span>
+                                        <span><%=jogo.magia%></span>
                                     </div>
                                 </div>
                             </div>
@@ -129,9 +133,7 @@
             <div class="row">
                 <div class="col-sm-1">
                     <img src="images/outros/suditos.jpg" title="Aldeões" alt="Aldeões" id="btn_suditos" />
-                    <span>
-                        <%=jogo.suditos%>
-                    </span>
+                    <span><%=jogo.suditos%></span>
                 </div>
 
                 <div class="col-sm-1">
@@ -142,9 +144,7 @@
 
                 <div class="col-sm-2">
                     <img src="images/outros/moeda.jpg" title="Moeda" alt="Moeda" />
-                    <span>
-                        <%=jogo.moeda%>
-                    </span>
+                    <span><%=jogo.moeda%></span>
                 </div>
 
             </div>
