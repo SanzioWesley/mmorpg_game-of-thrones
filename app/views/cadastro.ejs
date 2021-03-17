@@ -32,11 +32,11 @@
 
     <div class="container">
 
-        <% if(validacao.length> 0){ %>
+        <% if(validacao.length > 0){ %>
             <div class="alert alert-danger">
                 <strong>Atenção</strong>
                 <ul>
-                    <% for(var i=0; i < validacao.length; i++){ %>
+                    <% for(var i = 0; i < validacao.length; i++){ %>
                         <li>
                             <%= validacao[i].msg %>
                         </li>
@@ -45,7 +45,7 @@
             </div>
             <% } %>
 
-                <form class="form-cadastro" action="/cadastrar" method="post">
+                <form class="form-cadastro" action="/cadastrar" method="POST">
 
                     <div class="row">
                         <div class="col-xs-4">
