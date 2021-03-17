@@ -20,8 +20,8 @@
                 <li>
                     <%=acoes[i].quantidade%>
                         <%=txt_acao%>
-                            - <small>restam <span class="tempo_restante">5</span> segundos
-							- <a href="#">revogar ordem</a></small>
+                            - <small>restam <span class="tempo_restante"><%=segundos_restantes%></span> segundos
+				- <a href="#">revogar ordem</a></small>
                 </li>
                 <% } %>
     </ul>
